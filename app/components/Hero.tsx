@@ -1,11 +1,10 @@
 import Image from "next/image";
-import { Bug, BugOff, Rat, SprayCan, ShieldCheck, FlaskConical, MapPin, MessageCircle, ArrowRight } from "lucide-react";
+import { Bug, BugOff, Rat, SprayCan, ShieldCheck, MessageCircle, ArrowRight } from "lucide-react";
 import Reveal from "./Reveal";
+import { waUrl } from "../lib/whatsapp";
 
-// Reemplazá por el número real, formato internacional sin "+" ni espacios (Rosario: 549341XXXXXXX)
-const WHATSAPP_NUMBER = "549341XXXXXXX";
-const WHATSAPP_MSG = "Hola, quiero pedir un presupuesto de fumigación";
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MSG)}`;
+// El número de WhatsApp vive en lib/whatsapp.ts (un solo lugar para toda la web)
+const WHATSAPP_URL = waUrl("Hola, quiero pedir un presupuesto de fumigación");
 
 // PNG/WebP del técnico SIN fondo (transparente), guardado en public/images/
 const HERO_IMG = "/images/hero-image-2.webp";
@@ -17,8 +16,6 @@ const plagas = [
   { Icon: Rat, label: "Roedores" },
   { Icon: SprayCan, label: "Mosquitos" }, // lucide no tiene ícono de mosquito; cambialo si querés
 ];
-
-
 
 export default function Hero() {
   return (
@@ -64,9 +61,6 @@ export default function Hero() {
               Ver servicios
             </a>
           </div>
-        
-
-          
         </div>
 
         <Reveal delay={0.1}>
@@ -104,16 +98,16 @@ export default function Hero() {
               </g>
             </svg>
 
-           <Image
-  className="hero-img"
-  src={HERO_IMG}
-  alt={HERO_ALT}
-  fill
-  priority
-  quality={90}
-  sizes="(max-width: 760px) 90vw, 480px"
-  style={{ objectFit: "cover", objectPosition: "88% bottom" }}
-/>
+            <Image
+              className="hero-img"
+              src={HERO_IMG}
+              alt={HERO_ALT}
+              fill
+              priority
+              quality={90}
+              sizes="(max-width: 760px) 90vw, 480px"
+              style={{ objectFit: "cover", objectPosition: "88% bottom" }}
+            />
 
             <div className="hero-badge">
               <ShieldCheck size={26} aria-hidden="true" />

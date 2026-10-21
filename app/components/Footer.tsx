@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { empresa } from "../data/empresa";
+import { waUrl, WHATSAPP_DISPLAY } from "../lib/whatsapp";
 
 export default function Footer() {
   return (
@@ -18,15 +19,22 @@ export default function Footer() {
             <a href="#contacto">Contacto</a>
           </div>
           <div>
-            <b>Zona de atención</b>
+            <b>Contacto y zona</b>
+            <a href={waUrl()} target="_blank" rel="noopener noreferrer">
+              WhatsApp: {WHATSAPP_DISPLAY}
+            </a>
             <span>{empresa.zona}</span>
             <br />
             <span>{empresa.horario}</span>
           </div>
           <div>
             <b>Redes</b>
-            <a href={empresa.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href={empresa.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
+            {empresa.instagram && (
+              <a href={empresa.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
+            )}
+            {empresa.facebook && (
+              <a href={empresa.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
+            )}
           </div>
         </div>
         <p className="copy">© 2026 {empresa.nombre}. Todos los derechos reservados.</p>

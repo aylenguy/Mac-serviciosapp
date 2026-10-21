@@ -7,8 +7,12 @@ export default function Faq() {
     <section id="faq">
       <div className="wrap">
         <Reveal>
-          <h2>Preguntas frecuentes</h2>
-          <p className="sub">Las dudas más comunes antes de contratar.</p>
+          <div className="sec-head">
+            <h2>
+              Preguntas frecuentes<span>.</span>
+            </h2>
+            <p className="sub">Las dudas más comunes antes de contratar.</p>
+          </div>
         </Reveal>
         <Reveal className="faq" delay={0.1}>
           {faqs.map((f) => (

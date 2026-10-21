@@ -4,7 +4,7 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import Reveal from "./Reveal";
 import { servicios } from "../data/servicios";
 import { empresa } from "../data/empresa";
-import { waUrl } from "../lib/whatsapp";
+import { waUrl, WHATSAPP_DISPLAY } from "../lib/whatsapp";
 
 export default function Contacto() {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -20,15 +20,25 @@ export default function Contacto() {
     <section className="alt-bg" id="contacto">
       <div className="wrap contact">
         <Reveal>
-          <h2>Pedí tu presupuesto</h2>
-          <p style={{ color: "var(--mute)" }}>
-            Completá el formulario y te respondemos por WhatsApp. El presupuesto es sin cargo.
-          </p>
+          <div className="sec-head">
+            <h2>
+              Pedí tu presupuesto<span>.</span>
+            </h2>
+            <p className="sub">
+              Completá el formulario y te respondemos por WhatsApp. El presupuesto es sin cargo.
+            </p>
+          </div>
           <ul className="info">
-            <li><MapPin size={18} /><span><b>Dirección:</b> {empresa.direccion}</span></li>
-            <li><Phone size={18} /><span><b>WhatsApp:</b> {empresa.telefono}</span></li>
-            <li><Mail size={18} /><span><b>Email:</b> {empresa.email}</span></li>
-            <li><Clock size={18} /><span><b>Horario:</b> {empresa.horario}</span></li>
+            <li><MapPin size={18} aria-hidden="true" /><span><b>Dirección:</b> {empresa.direccion}</span></li>
+            <li>
+              <Phone size={18} aria-hidden="true" />
+              <span>
+                <b>WhatsApp:</b>{" "}
+                <a href={waUrl()} target="_blank" rel="noopener noreferrer">{WHATSAPP_DISPLAY}</a>
+              </span>
+            </li>
+           
+            <li><Clock size={18} aria-hidden="true" /><span><b>Horario:</b> {empresa.horario}</span></li>
           </ul>
           <div className="map">
             {empresa.mapaSrc ? (

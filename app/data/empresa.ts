@@ -1,12 +1,11 @@
 export const empresa = {
   nombre: "MAC Servicios Ambientales",
-  direccion: "[Calle y número], Rosario",
-  telefono: "[Número de WhatsApp]", // el que se muestra en pantalla
-  email: "[email@empresa.com]",
-  horario: "[Lunes a viernes de 8 a 17 hs]",
-  zona: "[Rosario y alrededores]",
-  instagram: "#", // link al perfil, ej: "https://instagram.com/usuario"
-  facebook: "#",
-  // Google Maps → Compartir → Insertar mapa → copiá solo el valor de src="..."
-  mapaSrc: "",
+  direccion: "Urquiza 1484, S2000 Rosario, Santa Fe",
+  telefono: "341 580-3636", // el que se muestra en pantalla
+  horario: "Lunes a viernes de 8 a 17 hs", // ⚠️ falta confirmar con el cliente
+  zona: "Rosario y alrededores",
+  instagram: "https://www.instagram.com/macserviciosambientales/",
+  facebook: "", // vacío = no se muestra el enlace en el footer
+  // Mapa de la dirección (no necesita clave). Para otro mapa: Google Maps → Compartir → Insertar mapa → copiá solo el src="..."
+  mapaSrc: "https://www.google.com/maps?q=Urquiza+1484,+Rosario,+Santa+Fe&output=embed",
 };
