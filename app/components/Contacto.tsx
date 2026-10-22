@@ -8,13 +8,26 @@ import { waUrl, WHATSAPP_DISPLAY } from "../lib/whatsapp";
 
 export default function Contacto() {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const f = new FormData(e.currentTarget);
-    const texto =
-      `Hola! Soy ${f.get("nombre")}.\nServicio: ${f.get("servicio")}\nTeléfono: ${f.get("tel")}` +
-      (f.get("msg") ? `\nMensaje: ${f.get("msg")}` : "");
-    window.open(waUrl(texto), "_blank");
-  }
+  e.preventDefault();
+  const f = new FormData(e.currentTarget);
+
+  const nombre = String(f.get("nombre") ?? "").trim();
+  const tel = String(f.get("tel") ?? "").trim();
+  const servicio = String(f.get("servicio") ?? "");
+  const msg = String(f.get("msg") ?? "").trim();
+
+  const pedido =
+    servicio === "Otro"
+      ? "un presupuesto"
+      : `un presupuesto para *${servicio.toLowerCase()}*`;
+
+  const texto =
+    `¡Hola! Soy ${nombre} y quiero pedir ${pedido}.\n\n` +
+    `Mi teléfono es ${tel}.` +
+    (msg ? `\n\nLes cuento: ${msg}` : "");
+
+  window.open(waUrl(texto), "_blank");
+}
 
   return (
     <section className="alt-bg" id="contacto">
