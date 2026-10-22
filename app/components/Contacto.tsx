@@ -8,26 +8,27 @@ import { waUrl, WHATSAPP_DISPLAY } from "../lib/whatsapp";
 
 export default function Contacto() {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-  e.preventDefault();
-  const f = new FormData(e.currentTarget);
+    e.preventDefault();
+    const f = new FormData(e.currentTarget);
 
-  const nombre = String(f.get("nombre") ?? "").trim();
-  const tel = String(f.get("tel") ?? "").trim();
-  const servicio = String(f.get("servicio") ?? "");
-  const msg = String(f.get("msg") ?? "").trim();
+    const nombre = String(f.get("nombre") ?? "").trim();
+    const tel = String(f.get("tel") ?? "").trim();
+    const servicio = String(f.get("servicio") ?? "");
+    const msg = String(f.get("msg") ?? "").trim();
 
-  const pedido =
-    servicio === "Otro"
-      ? "un presupuesto"
-      : `un presupuesto para *${servicio.toLowerCase()}*`;
+    const pedido =
+      servicio === "Otro"
+        ? "un presupuesto"
+        : `un presupuesto para *${servicio.toLowerCase()}*`;
 
-  const texto =
-    `¡Hola! Soy ${nombre} y quiero pedir ${pedido}.\n\n` +
-    `Mi teléfono es ${tel}.` +
-    (msg ? `\n\nLes cuento: ${msg}` : "");
+    const texto =
+      `¡Hola! Soy ${nombre} y quiero pedir ${pedido}.\n\n` +
+      `Mi teléfono es ${tel}.` +
+      (msg ? `\n\nLes cuento: ${msg}` : "");
 
-  window.open(waUrl(texto), "_blank");
-}
+    window.open(waUrl(texto), "_blank");
+  }
+
 
   return (
     <section className="alt-bg" id="contacto">
@@ -80,10 +81,12 @@ export default function Contacto() {
                 <option>Otro</option>
               </select>
             </label>
-            <label>
-              Mensaje
-              <textarea name="msg" rows={3} placeholder="Contanos qué necesitás" />
-            </label>
+         <label>
+  <span>
+    Mensaje <small style={{ opacity: 0.6, fontWeight: 400 }}>(opcional)</small>
+  </span>
+  <textarea name="msg" rows={3} placeholder="Contanos qué necesitás" />
+</label>
             <button className="btn" type="submit">Enviar por WhatsApp</button>
           </form>
         </Reveal>
