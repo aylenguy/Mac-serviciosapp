@@ -2,12 +2,11 @@ import Image from "next/image";
 import { Check, Users } from "lucide-react";
 import Reveal from "./Reveal";
 
-// 👇 Foto de los dueños. Ponela en public/images/. Mientras sea null se ve el logo.
-const NOSOTROS_IMG: string | null = null; // ejemplo: "/images/duenos.jpg"
+
+const NOSOTROS_IMG: string | null = null; 
 const NOSOTROS_ALT = "Los dueños de MAC Servicios Ambientales";
 
-// 👇 Fotos de la flota (vehículos). Mientras la lista esté vacía, la tira no se muestra.
-// ejemplo: ["/images/flota-1.jpg", "/images/flota-2.jpg", "/images/flota-3.jpg"]
+
 const FLOTA: string[] = [];
 const FLOTA_ALT = "Vehículo de MAC Servicios Ambientales";
 
