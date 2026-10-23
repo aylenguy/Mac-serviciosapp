@@ -21,10 +21,23 @@ header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.97);border-
 .nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}
 .nav a:hover{color:var(--red)}
 .nav .btn{color:#fff;padding:9px 20px;font-size:.9rem}
+.burger{display:none}
 @media(max-width:760px){
-  .nav li:not(:last-child){display:none}
-  .nav{height:70px}
-  .nav img{height:56px}
+  .nav{height:84px}
+  .nav.wrap{padding:0 36px}
+  .nav img{height:90px}
+
+  .burger{display:grid;gap:5px;width:44px;height:44px;place-content:center;background:none;border:0;border-radius:10px;cursor:pointer}
+  .burger span{display:block;width:26px;height:3px;border-radius:2px;background:var(--ink);transition:transform .25s,opacity .2s}
+  .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+  .nav ul{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(0,0,0,.08);padding:8px 36px 14px}
+  .nav ul.open{display:flex}
+  .nav li a{display:block;padding:14px 4px;font-size:1.05rem;border-bottom:1px solid var(--line)}
+  .nav li:nth-last-child(2) a{border-bottom:0}
+  .nav .nav-cta{display:none}
 }
 
 /* hero */
