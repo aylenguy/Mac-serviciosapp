@@ -3,7 +3,7 @@ import { Check, Users } from "lucide-react";
 import Reveal from "./Reveal";
 
 
-const NOSOTROS_IMG: string | null = null; 
+const NOSOTROS_IMG: string | null = "/images/nosotros.webp";
 const NOSOTROS_ALT = "Los dueños de MAC Servicios Ambientales";
 
 
