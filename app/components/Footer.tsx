@@ -17,7 +17,6 @@ export default function Footer() {
             <a href="#nosotros">Nosotros</a>
             <a href="#faq">Preguntas frecuentes</a>
             <a href="#contacto">Contacto</a>
-            <a href="/privacidad">Política de privacidad</a>
           </div>
           <div>
             <b>Contacto y zona</b>
@@ -38,7 +37,13 @@ export default function Footer() {
             )}
           </div>
         </div>
-        <p className="copy">© 2026 {empresa.nombre}. Todos los derechos reservados.</p>
+        <p className="copy">
+          © 2026 {empresa.nombre}. Todos los derechos reservados.{" "}
+          <span aria-hidden="true">·</span>{" "}
+          <a href="/privacidad" style={{ color: "inherit", textDecoration: "underline" }}>
+            Política de privacidad
+          </a>
+        </p>
       </div>
     </footer>
   );
