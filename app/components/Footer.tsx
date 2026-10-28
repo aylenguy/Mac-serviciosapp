@@ -17,6 +17,7 @@ export default function Footer() {
             <a href="#nosotros">Nosotros</a>
             <a href="#faq">Preguntas frecuentes</a>
             <a href="#contacto">Contacto</a>
+            <a href="/privacidad">Política de privacidad</a>
           </div>
           <div>
             <b>Contacto y zona</b>
